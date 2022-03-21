@@ -1,45 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Clock } from './components/Clock';
-import { TimeContext } from './context/timeContext';
+import { Clock } from './components/Clock/Clock';
+import { TimeContext } from './components/Clock';
 
 
 const App = () => {
 
-  const { setTime, startTimer, tick, started, ended, paused, pause, resume } = useContext(TimeContext);
-  const [tickInt, setTickInt] = useState(null);
-
-  useEffect(() => {
-    setTime({
-      hours: 0,
-      minutes: 1,
-      seconds: 0
-    });
-  }, []);
-  
-  useEffect(() => {
-    if (!ended && started) {
-      if (paused) {
-        clearInterval(tickInt);
-        setTickInt(null);
-      } else {
-        setTickInt(setInterval(tick, 1000));
-        console.log("Inside the paused useEffect");
-      }
-    }
-    return () => clearInterval(tickInt);
-
-  }, [paused, ended]);
-
-  useEffect(() => {
-    if (started) setTickInt(setInterval(tick, 1000));
-    return () => clearInterval(tickInt);
-  }, [started]);
-
-  useEffect(() => {
-    if (ended) clearInterval(tickInt);
-    return () => clearInterval(tickInt);
-  }, [ended]);
-
+  const { startTimer, started, ended, paused, pause, resume } = useContext(TimeContext);
 
   const startOnClick = () => {
     if (!started) {
@@ -47,7 +13,7 @@ const App = () => {
     }
   };
 
-  const pausedOnClick = () => {
+  const pauseOrResumeOnClick = () => {
     if (!ended) {
       if (paused) {
         resume();
@@ -59,8 +25,9 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <Clock />
-      {!started ? <button onClick={startOnClick}>Start</button> : <button onClick={pausedOnClick}>{paused ? "Resume" : "Pause"}</button>}
+      <Clock iHours={0} iMin={0} iSec={10}/>
+      {!started ? <button onClick={startOnClick}>Start</button> : <button onClick={pauseOrResumeOnClick}>{paused ? "Resume" : "Pause"}</button>}
+      {ended? <button>Restart</button> : <></>}
     </div>
   )
 }

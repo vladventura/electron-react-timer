@@ -67,6 +67,10 @@ const TimeProvider = (props) => {
         const now = DateTime.now();
         if (now >= state.then) {
             clearInterval(state.tickInterval);
+            electron.notificationApi.sendNotification({
+                title: "Time Over",
+                body: "Time is up!"
+            });
             dispatch({
                 type: "TIMER_OVER",
             });

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import { TimeProvider } from './context/timeContext';
+import { TimeProvider } from './components/Clock';
 
 import './index.scss';
 
