@@ -1,4 +1,3 @@
-
 const { BrowserWindow, app, ipcMain, Notification } = require('electron');
 const path = require('path');
 
@@ -26,8 +25,9 @@ if (isDev) {
   })
 }
 
-ipcMain.on('notify', (_, message) => {
-  new Notification({title: 'Notifiation', body: message}).show();
+ipcMain.on('notify', (_,  message) => {
+  console.log("On the ipc main");
+  new Notification(message).show();
 })
 
 app.whenReady().then(createWindow)

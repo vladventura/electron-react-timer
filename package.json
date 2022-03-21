@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node testing.js",
     "watch": "webpack --config webpack.common.js --watch",
     "start": "electron ."
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^10.1.2",
+    "luxon": "^2.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
