@@ -2,6 +2,7 @@
   --page-background: #2B494A;
   --text-color: #E90C7B;
   --labels: #528A89;
+  --time-background: #1C2C34;
 }
 
 html, body, #root {
@@ -9,6 +10,7 @@ html, body, #root {
   padding: 0;
   height: 100%;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -17,6 +19,7 @@ body {
 
 p {
   color: var(--text-color);
+  font-size: 2rem;
 }
 
 label {
