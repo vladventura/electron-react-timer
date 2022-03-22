@@ -5,7 +5,7 @@ import { TimeContext } from './components/Clock';
 
 const App = () => {
 
-  const { startTimer, started, ended, paused, pause, resume } = useContext(TimeContext);
+  const { startTimer, started, ended, paused, pause, resume, restartTimer } = useContext(TimeContext);
   const [timerOver, setTimerOver] = useState(false);
 
   const startOnClick = () => {
@@ -39,11 +39,16 @@ const App = () => {
     </div>
   );
 
+  const restartOnClick= () => {
+    restartTimer();
+    setTimerOver(false);
+  };
+
   return (
     <div className="main-container">
       {timerOver? timerOverComponent : <Clock iHours={0} iMin={0} iSec={10} onClockEnded={onTimerEnd}/>}
       {!started ? <button onClick={startOnClick}>Start</button> : !timerOver? <button onClick={pauseOrResumeOnClick}>{paused ? "Resume" : "Pause"}</button> : <></>}
-      {timerOver ? <button>Restart</button> : <></>}
+      {timerOver ? <button onClick={restartOnClick}>Restart</button> : <></>}
     </div>
   )
 }

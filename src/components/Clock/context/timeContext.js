@@ -45,6 +45,9 @@ const timeReducer = (state, action) => {
             then: action.payload,
             paused: false
         }
+        case "RESTARTED": return {
+            ...initState
+        }
         default: return state;
     }
 }
@@ -101,8 +104,14 @@ const TimeProvider = (props) => {
         });
     };
 
+    const restartTimer = () => {
+        dispatch({
+            type: "RESTARTED",
+        });
+    };
+
     return <TimeContext.Provider
-        value={{ ...state, tick, setTime, startTimer, pause, resume }}
+        value={{ ...state, tick, setTime, startTimer, pause, resume, restartTimer }}
         {...props}
     />
 }
