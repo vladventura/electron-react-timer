@@ -1,4 +1,6 @@
-# electron-react-boilerplate
-1. First install dependencies: ```npm install``` </br>
-2. In one terminal window run: ```npm run watch``` to compile react code <br/>
-3. In other one run: ```npm start``` to start Electron app
+# Timer in Electron with React
+Pretty much the title. The plan is to make it as pretty as possible
+
+## Using
+* React with useContext for state management
+* Electron to build the standalone app
