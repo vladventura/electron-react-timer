@@ -1,0 +1,12 @@
+
+.playpause-button {
+    margin-top: 1rem;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+  }
+
+.playpause-button > svg {
+    fill: var(--text-color);
+}
+
