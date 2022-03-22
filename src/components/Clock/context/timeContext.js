@@ -14,7 +14,7 @@ const initState = {
 const TimeContext = createContext(initState);
 
 const timeReducer = (state, action) => {
-    console.log("|TimeReducer.action|", action)
+    console.log("|TimeReducer.action|", action);
     switch (action.type) {
         case "START": return {
             ...state,
@@ -66,11 +66,6 @@ const TimeProvider = (props) => {
         if (state.paused || state.ended) return;
         const now = DateTime.now();
         if (now >= state.then) {
-            clearInterval(state.tickInterval);
-            electron.notificationApi.sendNotification({
-                title: "Time Over",
-                body: "Time is up!"
-            });
             dispatch({
                 type: "TIMER_OVER",
             });

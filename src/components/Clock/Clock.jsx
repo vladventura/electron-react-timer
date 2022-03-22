@@ -34,7 +34,10 @@ export const Clock = ({ onClockEnded, onClockPaused, iHours, iMin, iSec }) => {
     }, [started]);
 
     useEffect(() => {
-        if (ended) clearInterval(ticker);
+        if (ended) { 
+            clearInterval(ticker);
+            onClockEnded?.();
+        };
         return () => clearInterval(ticker);
     }, [ended]);
 
