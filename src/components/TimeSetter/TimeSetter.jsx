@@ -13,30 +13,34 @@ export const TimeSetter = ({ getTimeSet }) => {
         <div className="time-setter-container">
             <form className="timer-form">
                 <div className="row-container">
-                    <label htmlFor='hours'>Hours</label>
+                    <label className='input-label' htmlFor='hours'>H</label>
                     <input
                         id="hours"
                         name='hours'
+                        className="time-input"
                         type={'number'}
+
                         value={hours}
                         onChange={(e) => setHours(parseInt(e.target.value || 0))}
                     />
                 </div>
                 <div className="row-container">
-                    <label htmlFor='minutes'>Minutes</label>
+                    <label className='input-label' htmlFor='minutes'>M</label>
                     <input
                         id="minutes"
                         name='minutes'
+                        className="time-input"
                         type={'number'}
                         value={minutes}
                         onChange={(e) => setMinutes(parseInt(e.target.value || 0))}
                     />
                 </div>
                 <div className="row-container">
-                    <label htmlFor='seconds'>Seconds</label>
+                    <label className='input-label' htmlFor='seconds'>S</label>
                     <input
                         id="seconds"
                         name='seconds'
+                        className="time-input"
                         type={'number'}
                         value={seconds}
                         onChange={(e) => setSeconds(parseInt(e.target.value || 0))}
