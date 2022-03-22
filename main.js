@@ -26,7 +26,6 @@ if (isDev) {
 }
 
 ipcMain.on('notify', (_,  message) => {
-  console.log("On the ipc main");
   new Notification(message).show();
 })
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Clock } from './components/Clock/';
 import { TimeSetter } from './components/TimeSetter';
 import { TimeContext } from './components/Clock';
@@ -28,7 +28,6 @@ const App = () => {
   };
 
   const onTimerEnd = () => {
-    console.log("Timer is over");
     setTimerOver(true);
     electron.notificationApi.sendNotification({
       title: "Time Over",
@@ -48,9 +47,13 @@ const App = () => {
   };
 
   const timeSetterOrClock = (
-    !timerSet ? <TimeSetter getTimeSet={timeSetterGetTimeSet} />
+    !timerSet ? 
+      <TimeSetter getTimeSet={timeSetterGetTimeSet} />
       :
-      timerOver ? timerOverComponent : <Clock iHours={time.hours} iMin={time.minutes} iSec={time.seconds} onClockEnded={onTimerEnd} />
+      timerOver ? 
+        timerOverComponent 
+        : 
+        <Clock iHours={time.hours} iMin={time.minutes} iSec={time.seconds} onClockEnded={onTimerEnd} />
   );
 
   const restartOnClick = () => {
