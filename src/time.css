@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.timer-form {
+.timer-form, .clock-display {
     display: flex;
     flex-direction: row;
 }
@@ -11,4 +11,8 @@
 .row-container {
     display: flex;
     flex-direction: column;
+}
+
+.time-display {
+    margin: 0rem 1rem;
 }

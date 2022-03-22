@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TimeContext } from './context/timeContext';
 import { ClockDisplay } from './ClockDisplay';
+import "./Clock.css";
 
 export const Clock = ({ onClockEnded, onClockPaused, iHours, iMin, iSec }) => {
     const tc = useContext(TimeContext);

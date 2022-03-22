@@ -5,6 +5,7 @@ import App from './App';
 import { TimeProvider } from './components/Clock';
 
 import './index.scss';
+import './time.css';
 
 ReactDOM.render(
     <TimeProvider>

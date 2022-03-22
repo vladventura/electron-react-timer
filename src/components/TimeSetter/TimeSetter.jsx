@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './TimeSetter.css';
 
 export const TimeSetter = ({ getTimeSet }) => {
     const [hours, setHours] = useState(0);
