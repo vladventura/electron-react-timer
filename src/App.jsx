@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Clock } from './components/Clock/Clock';
+import { Clock } from './components/Clock/';
+import { TimeSetter } from './components/TimeSetter';
 import { TimeContext } from './components/Clock';
 
 
@@ -7,6 +8,8 @@ const App = () => {
 
   const { startTimer, started, ended, paused, pause, resume, restartTimer } = useContext(TimeContext);
   const [timerOver, setTimerOver] = useState(false);
+  const [timerSet, setTimerSet] = useState(false);
+  const [time, setTime] = useState({});
 
   const startOnClick = () => {
     if (!started) {
@@ -39,15 +42,28 @@ const App = () => {
     </div>
   );
 
-  const restartOnClick= () => {
+  const timeSetterGetTimeSet = (tm) => {
+    setTime(tm);
+    setTimerSet(true);
+  };
+
+  const timeSetterOrClock = (
+    !timerSet ? <TimeSetter getTimeSet={timeSetterGetTimeSet} />
+      :
+      timerOver ? timerOverComponent : <Clock iHours={time.hours} iMin={time.minutes} iSec={time.seconds} onClockEnded={onTimerEnd} />
+  );
+
+  const restartOnClick = () => {
     restartTimer();
     setTimerOver(false);
+    setTimerSet(false);
+    setTime({});
   };
 
   return (
     <div className="main-container">
-      {timerOver? timerOverComponent : <Clock iHours={0} iMin={0} iSec={10} onClockEnded={onTimerEnd}/>}
-      {!started ? <button onClick={startOnClick}>Start</button> : !timerOver? <button onClick={pauseOrResumeOnClick}>{paused ? "Resume" : "Pause"}</button> : <></>}
+      {timeSetterOrClock}
+      {!started && timerSet ? <button onClick={startOnClick}>Start</button> : !timerOver && timerSet ? <button onClick={pauseOrResumeOnClick}>{paused ? "Resume" : "Pause"}</button> : <></>}
       {timerOver ? <button onClick={restartOnClick}>Restart</button> : <></>}
     </div>
   )
