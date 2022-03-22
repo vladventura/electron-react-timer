@@ -18,7 +18,7 @@ export const TimeSetter = ({ getTimeSet }) => {
                         id="hours"
                         name='hours'
                         className="time-input"
-                        type={'number'}
+                        type={'numeric'}
 
                         value={hours}
                         onChange={(e) => setHours(parseInt(e.target.value || 0))}
@@ -30,7 +30,7 @@ export const TimeSetter = ({ getTimeSet }) => {
                         id="minutes"
                         name='minutes'
                         className="time-input"
-                        type={'number'}
+                        type={'numeric'}
                         value={minutes}
                         onChange={(e) => setMinutes(parseInt(e.target.value || 0))}
                     />
@@ -41,7 +41,7 @@ export const TimeSetter = ({ getTimeSet }) => {
                         id="seconds"
                         name='seconds'
                         className="time-input"
-                        type={'number'}
+                        type={'numeric'}
                         value={seconds}
                         onChange={(e) => setSeconds(parseInt(e.target.value || 0))}
                     />

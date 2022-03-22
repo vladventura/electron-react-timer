@@ -50,3 +50,9 @@
     left: -50px;
     color: var(--labels);
 }
+
+.row-container > .set-timer {
+    align-self: center;
+    margin-top: 1rem;
+    width: 50%;
+}

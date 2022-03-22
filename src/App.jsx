@@ -66,13 +66,13 @@ const App = () => {
   };
 
   const getTimerButton = () => {
-    return !timerOver && timerSet ? <RuntimeButton onClick={pauseOrResumeOnClick} icon={paused ? "pause" : "play"} /> : <></>;
+    return !timerOver && timerSet ? <RuntimeButton onClick={pauseOrResumeOnClick} icon={paused ? "play" : "pause"} /> : <></>;
   }
 
   return (
     <div className="main-container">
       {timeSetterOrClock}
-      {!started && timerSet ? <button onClick={startOnClick}>Start</button> : getTimerButton()}
+      {!started && timerSet ? <button className='start-button' onClick={startOnClick}>Start</button> : getTimerButton()}
       {timerOver ? <button onClick={restartOnClick}>Restart</button> : <></>}
     </div>
   )
