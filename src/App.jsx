@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Clock } from './components/Clock/';
 import { TimeSetter } from './components/TimeSetter';
 import { TimeContext } from './components/Clock';
+import './App.css';
 
 
 const App = () => {

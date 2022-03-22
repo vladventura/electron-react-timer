@@ -1,3 +1,24 @@
-h1 {
-  color: blue;
+:root {
+  --page-background: #2B494A;
+  --text-color: #E90C7B;
+  --labels: #528A89;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--page-background);
+}
+
+p {
+  color: var(--text-color);
+}
+
+label {
+  color: var(--labels);
 }
