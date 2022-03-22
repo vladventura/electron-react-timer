@@ -42,8 +42,8 @@ const App = () => {
   return (
     <div className="main-container">
       {timerOver? timerOverComponent : <Clock iHours={0} iMin={0} iSec={10} onClockEnded={onTimerEnd}/>}
-      {!started ? <button onClick={startOnClick}>Start</button> : <button onClick={pauseOrResumeOnClick}>{paused ? "Resume" : "Pause"}</button>}
-      {ended ? <button>Restart</button> : <></>}
+      {!started ? <button onClick={startOnClick}>Start</button> : !timerOver? <button onClick={pauseOrResumeOnClick}>{paused ? "Resume" : "Pause"}</button> : <></>}
+      {timerOver ? <button>Restart</button> : <></>}
     </div>
   )
 }
