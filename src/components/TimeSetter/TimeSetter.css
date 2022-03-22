@@ -1,0 +1,14 @@
+.time-setter-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: column;
+}
