@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getColors, setColors } from '../../helpers/localStorageHelpers';
+import { getColors, setColors, setDefaultColors } from '../../helpers/localStorageHelpers';
 import './Settings.css';
 
 export const Settings = () => {
@@ -32,7 +32,6 @@ export const Settings = () => {
     }, []);
 
     return <div className="settings-page-container">
-        Settings page
         <div className="settings-page-main-container">
             <h1 className='settings-title'>Colors</h1>
 
@@ -70,6 +69,7 @@ export const Settings = () => {
 
             </form>
             <button onClick={saveChangesOnClick} className='save-changes'>Save changes</button>
+            <button onClick={setDefaultColors} className="set-default-colors">Set Default Colors</button>
             <button className="return-home " onClick={returnOnClick}>Return to home</button>
         </div>
     </div>

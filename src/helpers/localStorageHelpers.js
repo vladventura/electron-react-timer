@@ -31,3 +31,10 @@ export const setColors = (incomingColor = getColors()) => {
         localStorage.setItem(id, color);
     });
 }
+
+export const setDefaultColors = () => setColors({
+    '--page-background': '#2B494A',
+    '--text-color': '#E90C7B',
+    '--labels': '#528A89',
+    '--time-background': '#1C2C34',
+});
