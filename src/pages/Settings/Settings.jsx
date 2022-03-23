@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getColors } from '../../helpers/localStorageHelpers';
+import { getColors, setColors } from '../../helpers/localStorageHelpers';
 import './Settings.css';
 
 export const Settings = () => {
@@ -13,6 +13,15 @@ export const Settings = () => {
     const [timeColor, setTimeColor] = useState("");
     const [pageBackgroundColor, setPageBackgroundColor] = useState("");
     const [timeBackgroundColor, setTimeBackgroundColor] = useState("");
+
+    const saveChangesOnClick = () => {
+        setColors({
+            '--labels': labelsColor,
+            '--text-color': timeColor,
+            '--page-background': pageBackgroundColor,
+            '--time-background': timeBackgroundColor
+        });
+    };
 
     useEffect(() => {
         const colors = getColors();
@@ -60,7 +69,7 @@ export const Settings = () => {
                 </div>
 
             </form>
-            <button className='save-changes'>Save changes</button>
+            <button onClick={saveChangesOnClick} className='save-changes'>Save changes</button>
             <button className="return-home " onClick={returnOnClick}>Return to home</button>
         </div>
     </div>

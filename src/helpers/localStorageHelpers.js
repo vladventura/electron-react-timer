@@ -22,3 +22,12 @@ export const getColors = () => {
     });
     return result;
 };
+
+export const setColors = (incomingColor = getColors()) => {
+    const root = document.documentElement;
+    Object.keys(incomingColor).map(id => {
+        let color = incomingColor[id];
+        root.style.setProperty(id, color);
+        localStorage.setItem(id, color);
+    });
+}

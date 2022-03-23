@@ -4,8 +4,13 @@ import { TopBar } from './components/TopBar/TopBar';
 import { Settings } from './pages/Settings';
 // HashBrowser: read https://stackoverflow.com/a/50404777 for more information
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { setColors } from './helpers/localStorageHelpers';
 
 const App = () => {
+
+  useEffect(() => {
+    setColors()
+  }, []);
 
   return <div className='main-container'>
     <Router>
