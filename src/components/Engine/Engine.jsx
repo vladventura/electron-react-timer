@@ -71,8 +71,11 @@ export const Engine = () => {
   return (
     <div className="main-container">
       {timeSetterOrClock}
-      {!started && timerSet ? <button className='start-button' onClick={startOnClick}>Start</button> : getTimerButton()}
-      {timerOver ? <button onClick={restartOnClick}>Restart</button> : <></>}
+      <div className="buttons">
+        {!started && timerSet ? <button className='start-button' onClick={startOnClick}>Start</button> : getTimerButton()}
+        {!started && timerSet ? <button className='go-back' onClick={() => setTimerSet(false)}>Go back</button> : <></>}
+        {timerOver ? <button onClick={restartOnClick}>Restart</button> : <></>}
+      </div>
     </div>
   )
 }

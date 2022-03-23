@@ -10,3 +10,12 @@
 .start-button {
     margin-top: 1rem;
 }
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons > * {
+    margin: 1rem 0;
+}
