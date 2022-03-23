@@ -13,3 +13,7 @@
     position: absolute;
     top: 0;
 }
+
+.back-arrow_svg__back-arrow {
+    transform: scale(0.60);
+}
