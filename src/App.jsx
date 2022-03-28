@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Clock } from './components/Clock/';
 import { TimeSetter } from './components/TimeSetter';
 import { TimeContext } from './components/Clock';
+import { RuntimeButton } from './components/RuntimeButton';
+import './App.css';
 
 
 const App = () => {
@@ -47,12 +49,12 @@ const App = () => {
   };
 
   const timeSetterOrClock = (
-    !timerSet ? 
+    !timerSet ?
       <TimeSetter getTimeSet={timeSetterGetTimeSet} />
       :
-      timerOver ? 
-        timerOverComponent 
-        : 
+      timerOver ?
+        timerOverComponent
+        :
         <Clock iHours={time.hours} iMin={time.minutes} iSec={time.seconds} onClockEnded={onTimerEnd} />
   );
 
@@ -63,10 +65,14 @@ const App = () => {
     setTime({});
   };
 
+  const getTimerButton = () => {
+    return !timerOver && timerSet ? <RuntimeButton onClick={pauseOrResumeOnClick} icon={paused ? "play" : "pause"} /> : <></>;
+  }
+
   return (
     <div className="main-container">
       {timeSetterOrClock}
-      {!started && timerSet ? <button onClick={startOnClick}>Start</button> : !timerOver && timerSet ? <button onClick={pauseOrResumeOnClick}>{paused ? "Resume" : "Pause"}</button> : <></>}
+      {!started && timerSet ? <button className='start-button' onClick={startOnClick}>Start</button> : getTimerButton()}
       {timerOver ? <button onClick={restartOnClick}>Restart</button> : <></>}
     </div>
   )

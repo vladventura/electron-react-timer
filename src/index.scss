@@ -1,3 +1,27 @@
-h1 {
-  color: blue;
+:root {
+  --page-background: #2B494A;
+  --text-color: #E90C7B;
+  --labels: #528A89;
+  --time-background: #1C2C34;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--page-background);
+}
+
+p {
+  color: var(--text-color);
+  font-size: 2rem;
+}
+
+label {
+  color: var(--labels);
 }

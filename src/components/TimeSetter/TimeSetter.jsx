@@ -11,33 +11,45 @@ export const TimeSetter = ({ getTimeSet }) => {
 
     return (
         <div className="time-setter-container">
-            <form>
-                <label htmlFor='hours'>Hours</label>
-                <input
-                    id="hours"
-                    name='hours'
-                    type={'number'}
-                    value={hours}
-                    onChange={(e) => setHours(parseInt(e.target.value || 0))}
-                />
-                <label htmlFor='minutes'>Minutes</label>
-                <input
-                    id="minutes"
-                    name='minutes'
-                    type={'number'}
-                    value={minutes}
-                    onChange={(e) => setMinutes(parseInt(e.target.value || 0))}
-                />
-                <label htmlFor='seconds'>Seconds</label>
-                <input
-                    id="seconds"
-                    name='seconds'
-                    type={'number'}
-                    value={seconds}
-                    onChange={(e) => setSeconds(parseInt(e.target.value || 0))}
-                />
-                <button className="set-timer" onClick={getTimeOnClick}>Set Timer</button>
+            <form className="timer-form">
+                <div className="row-container">
+                    <label className='input-label' htmlFor='hours'>H</label>
+                    <input
+                        id="hours"
+                        name='hours'
+                        className="time-input"
+                        type={'numeric'}
+
+                        value={hours}
+                        onChange={(e) => setHours(parseInt(e.target.value || 0))}
+                    />
+                </div>
+                <div className="row-container">
+                    <label className='input-label' htmlFor='minutes'>M</label>
+                    <input
+                        id="minutes"
+                        name='minutes'
+                        className="time-input"
+                        type={'numeric'}
+                        value={minutes}
+                        onChange={(e) => setMinutes(parseInt(e.target.value || 0))}
+                    />
+                </div>
+                <div className="row-container">
+                    <label className='input-label' htmlFor='seconds'>S</label>
+                    <input
+                        id="seconds"
+                        name='seconds'
+                        className="time-input"
+                        type={'numeric'}
+                        value={seconds}
+                        onChange={(e) => setSeconds(parseInt(e.target.value || 0))}
+                    />
+                </div>
             </form>
+            <div className="row-container">
+                <button className="set-timer" onClick={getTimeOnClick}>Set Timer</button>
+            </div>
         </div>
     );
 }; 
