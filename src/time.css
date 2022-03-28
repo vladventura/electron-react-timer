@@ -39,6 +39,7 @@
     display: inline-block;
     transform: rotate(-90deg);
     position: relative;
+    user-select: none;
 }
 
 .input-label {

@@ -1,81 +1,26 @@
-import React, { useState, useContext } from 'react';
-import { Clock } from './components/Clock/';
-import { TimeSetter } from './components/TimeSetter';
-import { TimeContext } from './components/Clock';
-import { RuntimeButton } from './components/RuntimeButton';
-import './App.css';
-
+import React, { useEffect } from 'react';
+import { Engine } from './components/Engine/';
+import { TopBar } from './components/TopBar/TopBar';
+import { Settings } from './pages/Settings';
+// HashBrowser: read https://stackoverflow.com/a/50404777 for more information
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { setColors } from './helpers/localStorageHelpers';
 
 const App = () => {
 
-  const { startTimer, started, ended, paused, pause, resume, restartTimer } = useContext(TimeContext);
-  const [timerOver, setTimerOver] = useState(false);
-  const [timerSet, setTimerSet] = useState(false);
-  const [time, setTime] = useState({});
+  useEffect(() => {
+    setColors()
+  }, []);
 
-  const startOnClick = () => {
-    if (!started) {
-      startTimer();
-    }
-  };
-
-  const pauseOrResumeOnClick = () => {
-    if (!ended) {
-      if (paused) {
-        resume();
-      } else {
-        pause();
-      }
-    }
-  };
-
-  const onTimerEnd = () => {
-    setTimerOver(true);
-    electron.notificationApi.sendNotification({
-      title: "Time Over",
-      body: "Time is up!"
-    });
-  };
-
-  const timerOverComponent = (
-    <div className="timer-over">
-      Time's up
-    </div>
-  );
-
-  const timeSetterGetTimeSet = (tm) => {
-    setTime(tm);
-    setTimerSet(true);
-  };
-
-  const timeSetterOrClock = (
-    !timerSet ?
-      <TimeSetter getTimeSet={timeSetterGetTimeSet} />
-      :
-      timerOver ?
-        timerOverComponent
-        :
-        <Clock iHours={time.hours} iMin={time.minutes} iSec={time.seconds} onClockEnded={onTimerEnd} />
-  );
-
-  const restartOnClick = () => {
-    restartTimer();
-    setTimerOver(false);
-    setTimerSet(false);
-    setTime({});
-  };
-
-  const getTimerButton = () => {
-    return !timerOver && timerSet ? <RuntimeButton onClick={pauseOrResumeOnClick} icon={paused ? "play" : "pause"} /> : <></>;
-  }
-
-  return (
-    <div className="main-container">
-      {timeSetterOrClock}
-      {!started && timerSet ? <button className='start-button' onClick={startOnClick}>Start</button> : getTimerButton()}
-      {timerOver ? <button onClick={restartOnClick}>Restart</button> : <></>}
-    </div>
-  )
-}
+  return <div className='main-container'>
+    <Router>
+      <TopBar />
+      <Routes>
+        <Route path="/" element={<Engine />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+    </Router>
+  </div>;
+};
 
 export default App;

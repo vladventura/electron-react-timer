@@ -1,0 +1,19 @@
+.settings-container {
+    margin: 1rem 2rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.topbar-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+}
+
+.back-arrow_svg__back-arrow {
+    transform: scale(0.60);
+}

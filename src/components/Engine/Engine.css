@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    min-height: 100%;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -10,4 +9,13 @@
 
 .start-button {
     margin-top: 1rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons > * {
+    margin: 1rem 0;
 }
