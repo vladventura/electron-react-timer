@@ -10,7 +10,7 @@
     "build": "webpack --config webpack.common.js",
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "dist": "electron-builder -mwl",
     "postinstall": "electron-builder install-app-deps"
   },
   "keywords": [],
