@@ -1,22 +1,39 @@
 {
-  "name": "electron-react-app",
+  "name": "timer",
   "version": "1.0.0",
-  "description": "",
+  "description": "A timer built with React and electron",
   "main": "main.js",
+  "homepage": "./",
   "scripts": {
     "test": "node testing.js",
     "watch": "webpack --config webpack.common.js --watch",
-    "start": "electron ."
+    "build": "webpack --config webpack.common.js",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
   "keywords": [],
-  "author": "",
+  "author": "vladventura",
   "license": "ISC",
   "dependencies": {
-    "electron": "^17.1.2",
     "luxon": "^2.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^6.2.2"
+  },
+  "build": {
+    "appId": "vladventura.timer",
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "files": [
+      "./build/**/*",
+      "./node_modules/*",
+      "./main.js",
+      "./preload.js",
+      "index.html"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -25,6 +42,8 @@
     "@svgr/webpack": "^6.2.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.3.0",
+    "electron": "^17.1.2",
+    "electron-builder": "^22.14.13",
     "electron-reload": "^1.5.0",
     "file-loader": "^6.2.0",
     "sass": "^1.26.11",
@@ -32,5 +51,6 @@
     "style-loader": "^1.2.1",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
