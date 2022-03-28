@@ -18,3 +18,6 @@ following functionality to the app:
 * Custom notification messages for the timers
 
 I'll try to make this my long-term prroject, mostly because it's good practice in my preferred language and it's super fun to build stuff with electron.
+
+# Known issues
+* When going into settings with an active timer and going back the app shows the set timer screen, and when that set timer button is clicked, the app then goes back to the original timer that was there
